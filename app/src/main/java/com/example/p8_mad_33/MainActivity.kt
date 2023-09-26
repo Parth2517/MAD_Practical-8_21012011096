@@ -4,14 +4,23 @@ import android.app.AlarmManager
 import android.app.PendingIntent
 import android.content.Intent
 import android.opengl.Visibility
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.TextView
+import android.widget.TimePicker
 import androidx.core.view.isVisible
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.card.MaterialCardView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import java.sql.Time
+import java.text.SimpleDateFormat
+import java.time.LocalTime
+import java.time.format.DateTimeFormatter
+import java.util.Calendar
+import java.util.Date
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,13 +28,47 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         var alarm_set:MaterialButton=findViewById(R.id.Alarm_set)
         var m2:MaterialCardView=findViewById(R.id.set_alarm2);
+        var c_time:TextView=findViewById(R.id.c_time);
+        val alarm_show:MaterialCardView=findViewById(R.id.alarm_show);
+        val set:Button=findViewById(R.id.set);
+        val timepicker:TimePicker=findViewById(R.id.timePicker);
+        val simpleDateFormat = SimpleDateFormat("yyyy.MM.dd G 'at' HH:mm:ss z")
+        val currentDateAndTime: String = simpleDateFormat.format(Date())
+        c_time.text=currentDateAndTime;
         alarm_set.setOnClickListener(){
-                m2.visibility= View.VISIBLE
-            var alarm_set2:MaterialButton=findViewById(R.id.Alarm_set2);
+            alarm_show.visibility=View.VISIBLE
         }
         var alarm_set2:MaterialButton=findViewById(R.id.Alarm_set2)
         alarm_set2.setOnClickListener(){
             m2.visibility=View.INVISIBLE
+        }
+        set.setOnClickListener(){
+            alarm_show.visibility=View.GONE
+            m2.visibility= View.VISIBLE
+        }
+        set.setOnClickListener {
+            val calendar: Calendar = Calendar.getInstance()
+            if (Build.VERSION.SDK_INT >= 23) {
+                calendar.set(
+                    calendar.get(Calendar.YEAR),
+                    calendar.get(Calendar.MONTH),
+                    calendar.get(Calendar.DAY_OF_MONTH),
+                    timepicker.hour,
+                    timepicker.minute,
+                    0
+                )
+            }
+            else {
+                calendar.set(
+                    calendar.get(Calendar.YEAR),
+                    calendar.get(Calendar.MONTH),
+                    calendar.get(Calendar.DAY_OF_MONTH),
+                    timepicker.hour,
+                    timepicker.minute,
+                    0
+                )
+            }
+            set_alarm(calendar.timeInMillis,"start")
         }
 
     }
