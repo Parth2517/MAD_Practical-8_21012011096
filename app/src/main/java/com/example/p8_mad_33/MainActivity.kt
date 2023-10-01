@@ -29,6 +29,7 @@ class MainActivity : AppCompatActivity() {
         var alarm_set:MaterialButton=findViewById(R.id.Alarm_set)
         var m2:MaterialCardView=findViewById(R.id.set_alarm2);
         var c_time:TextView=findViewById(R.id.c_time);
+        var set_time:TextView=findViewById(R.id.set_time);
         val alarm_show:MaterialCardView=findViewById(R.id.alarm_show);
         val set:Button=findViewById(R.id.set);
         val timepicker:TimePicker=findViewById(R.id.timePicker);
@@ -40,11 +41,8 @@ class MainActivity : AppCompatActivity() {
         }
         var alarm_set2:MaterialButton=findViewById(R.id.Alarm_set2)
         alarm_set2.setOnClickListener(){
+            stop_alarm();
             m2.visibility=View.INVISIBLE
-        }
-        set.setOnClickListener(){
-            alarm_show.visibility=View.GONE
-            m2.visibility= View.VISIBLE
         }
         set.setOnClickListener {
             val calendar: Calendar = Calendar.getInstance()
@@ -69,6 +67,9 @@ class MainActivity : AppCompatActivity() {
                 )
             }
             set_alarm(calendar.timeInMillis,"start")
+            m2.visibility= View.VISIBLE
+            alarm_show.visibility=View.GONE
+            set_time.text=timepicker.hour.toString() + "/"+timepicker.minute.toString()
         }
 
     }
@@ -80,5 +81,9 @@ class MainActivity : AppCompatActivity() {
         if(action==AlarmBrodcastReceiver.ALARM_START){
             manager.setExact(AlarmManager.RTC_WAKEUP,militime,pendingintent)
         }
+    }
+    fun stop_alarm(){
+        var intent=Intent(applicationContext,AlarmService::class.java);
+        stopService(intent);
     }
 }
