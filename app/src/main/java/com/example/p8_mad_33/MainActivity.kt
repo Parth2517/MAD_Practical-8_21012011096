@@ -28,6 +28,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         var alarm_set:MaterialButton=findViewById(R.id.Alarm_set)
         var m2:MaterialCardView=findViewById(R.id.set_alarm2);
+        var m1:MaterialCardView=findViewById(R.id.set_alarm);
         var c_time:TextView=findViewById(R.id.c_time);
         var set_time:TextView=findViewById(R.id.set_time);
         val alarm_show:MaterialCardView=findViewById(R.id.alarm_show);
@@ -38,6 +39,7 @@ class MainActivity : AppCompatActivity() {
         c_time.text=currentDateAndTime;
         alarm_set.setOnClickListener(){
             alarm_show.visibility=View.VISIBLE
+            m1.visibility=View.INVISIBLE
         }
         var alarm_set2:MaterialButton=findViewById(R.id.Alarm_set2)
         alarm_set2.setOnClickListener(){
@@ -67,6 +69,7 @@ class MainActivity : AppCompatActivity() {
                 )
             }
             set_alarm(calendar.timeInMillis,"start")
+            m1.visibility=View.VISIBLE
             m2.visibility= View.VISIBLE
             alarm_show.visibility=View.GONE
             set_time.text=timepicker.hour.toString() + "/"+timepicker.minute.toString()
