@@ -1,5 +1,4 @@
 package com.example.p8_mad_33
-
 import android.app.AlarmManager
 import android.app.PendingIntent
 import android.content.Intent
@@ -29,14 +28,14 @@ class MainActivity : AppCompatActivity() {
         var alarm_set:MaterialButton=findViewById(R.id.Alarm_set)
         var m2:MaterialCardView=findViewById(R.id.set_alarm2);
         var m1:MaterialCardView=findViewById(R.id.set_alarm);
-        var c_time:TextView=findViewById(R.id.c_time);
+        var c_time2:TextView=findViewById(R.id.c_time2);
         var set_time:TextView=findViewById(R.id.set_time);
         val alarm_show:MaterialCardView=findViewById(R.id.alarm_show);
         val set:Button=findViewById(R.id.set);
         val timepicker:TimePicker=findViewById(R.id.timePicker);
-        val simpleDateFormat = SimpleDateFormat("yyyy.MM.dd G 'at' HH:mm:ss z")
+        val simpleDateFormat = SimpleDateFormat("EEEE, dd-MMM-yyyy hh-mm-ss a")
         val currentDateAndTime: String = simpleDateFormat.format(Date())
-        c_time.text=currentDateAndTime;
+        c_time2.text=currentDateAndTime;
         alarm_set.setOnClickListener(){
             alarm_show.visibility=View.VISIBLE
             m1.visibility=View.INVISIBLE
@@ -72,7 +71,7 @@ class MainActivity : AppCompatActivity() {
             m1.visibility=View.VISIBLE
             m2.visibility= View.VISIBLE
             alarm_show.visibility=View.GONE
-            set_time.text=timepicker.hour.toString() + "/"+timepicker.minute.toString()
+            set_time.text=timepicker.hour.toString() + ":"+timepicker.minute.toString()+": 00"+":"
         }
 
     }

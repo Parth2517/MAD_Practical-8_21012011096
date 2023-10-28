@@ -9,7 +9,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="108dp"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
         android:text="Mad_Alarm_Practical"
         android:textSize="20dp"
@@ -20,7 +20,7 @@
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/set_alarm"
         android:layout_width="match_parent"
-        android:layout_height="280dp"
+        android:layout_height="350dp"
         android:layout_margin="20dp"
         android:backgroundTint="#ccddff"
         android:elevation="20dp"
@@ -46,6 +46,21 @@
             android:text="Create Alarm Time"
             android:textSize="20dp"
             android:textStyle="bold" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/alarm_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"/>
+        <TextView
+            android:id="@+id/c_time2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:layout_gravity="center"
+            android:layout_marginTop="100dp"
+            android:textSize="20dp"
+            android:textStyle="bold" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/Alarm_set"
@@ -55,16 +70,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginBottom="10dp"
             android:text="@string/kenil"
-            app:icon="@drawable/baseline_add_24" />
-
-        <TextView
-            android:id="@+id/c_time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:layout_gravity="bottom|right"
-            android:layout_marginBottom="60dp"
-            android:layout_marginEnd="20dp"/>
+            app:icon="@drawable/baseline_alarm_add_24" />
     </com.google.android.material.card.MaterialCardView>
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
@@ -131,15 +137,24 @@
             android:layout_marginStart="20dp"
             android:layout_marginBottom="10dp"
             android:text="@string/kenil2"
-            app:icon="@drawable/baseline_add_24" />
+            app:icon="@drawable/baseline_alarm_off_24" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Set Alarm Time:"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="50dp"/>
 
         <TextView
             android:id="@+id/set_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""
-            android:layout_gravity="right|bottom"
-            android:layout_margin="40dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="80dp"
+            android:layout_marginStart="30dp"
             android:textSize="20dp"
             android:textStyle="bold" />
     </com.google.android.material.card.MaterialCardView>
