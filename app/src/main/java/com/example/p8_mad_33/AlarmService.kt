@@ -17,7 +17,7 @@ class AlarmService : Service() {
     }
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         if(intent!=null){
-        player=MediaPlayer.create(this,R.raw.alarm)
+        player= MediaPlayer.create(this,R.raw.alarm)
             player.start()
         }
         return START_STICKY
