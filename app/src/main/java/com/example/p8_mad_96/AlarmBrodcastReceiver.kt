@@ -1,4 +1,4 @@
-package com.example.p8_mad_33
+package com.example.p8_mad_96
 
 import android.content.BroadcastReceiver
 import android.content.Context

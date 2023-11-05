@@ -1,4 +1,4 @@
-package com.example.p8_mad_33
+package com.example.p8_mad_96
 import android.app.AlarmManager
 import android.app.PendingIntent
 import android.content.Intent
@@ -10,7 +10,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import android.widget.TimePicker
-import androidx.core.view.isVisible
+import com.example.mad_practical_8_21012011096.R
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.card.MaterialCardView
 import com.google.android.material.floatingactionbutton.FloatingActionButton

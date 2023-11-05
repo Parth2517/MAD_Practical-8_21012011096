@@ -13,5 +13,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "p8_mad_33"
+rootProject.name = "p8_mad_96"
 include(":app")
